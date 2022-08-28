@@ -3,7 +3,12 @@
 #include <string>
 
 using std::string;
-
+string formatSMH(int val){
+  string str = "";
+  if(val < 10 ) return ("0" +std::to_string(val));
+  else return std::to_string(val);
+return str;
+}
 // TODO: Complete this helper function
 // INPUT: Long int measuring seconds
 // OUTPUT: HH:MM:SS
@@ -15,7 +20,7 @@ string Format::ElapsedTime(long seconds) {
     seconds = (seconds - time_[i]) / 60;
   }
   string time_str;
-  time_str = std::to_string(time_[2]) + ":" + std::to_string(time_[1]) + ":" +
-             std::to_string(time_[0]);
+  time_str = formatSMH(time_[2]) + ":" + formatSMH(time_[1]) + ":" +
+             formatSMH(time_[0]);
   return time_str;
 }
