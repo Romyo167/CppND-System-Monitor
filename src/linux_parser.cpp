@@ -235,14 +235,14 @@ int LinuxParser::RunningProcesses()
 string LinuxParser::Command(int pid)
 {
   std::ifstream stream(kProcDirectory + "/" + to_string(pid)  + kCmdlineFilename);
+  string str;
   if (stream.is_open()) 
   {
-     string str;
+     
      if(getline(stream , str)){
-       return str;
      }
   }
-
+  return str;
 } 
 
 // TODO: Read and return the memory used by a process
